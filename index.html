@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Qiushi (Billy) Zhao | Analytics and quantitative finance</title>
+<meta name="description" content="Qiushi (Billy) Zhao is a Business Analytics and Information Technology student at Rutgers with a mathematics minor, working toward quantitative risk research.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #10222e;
+    --ink-soft: #46596a;
+    --paper: #eef3f5;
+    --sheet: #ffffff;
+    --line: #cdd9df;
+    --warm: #d9801a;      /* El Niño phase */
+    --warm-deep: #9a5607;
+    --cool: #1f7a8c;      /* La Niña phase */
+    --deep: #0d2c3d;      /* ocean */
+    --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+    --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --wrap: 1080px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 1.125rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration-color: var(--cool); text-underline-offset: 0.18em; text-decoration-thickness: 2px; }
+  a:hover { color: var(--cool); }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--warm); outline-offset: 3px; border-radius: 2px; }
+  .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 24px; }
+  h1, h2, h3 { font-family: var(--display); line-height: 1.08; margin: 0; letter-spacing: -0.02em; }
+  p { margin: 0 0 1em; }
+  .skip { position: absolute; left: -999px; }
+  .skip:focus { left: 16px; top: 16px; background: var(--sheet); padding: 8px 12px; z-index: 10; }
+
+  /* Header */
+  .site-head { padding: 22px 0; }
+  .site-head .wrap { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+  .name { font-family: var(--display); font-weight: 700; font-size: 1.1rem; text-decoration: none; }
+  nav ul { list-style: none; display: flex; gap: 22px; margin: 0; padding: 0; flex-wrap: wrap; }
+  nav a { font-family: var(--display); font-size: 0.98rem; text-decoration: none; color: var(--ink-soft); }
+  nav a:hover { color: var(--ink); text-decoration: underline; text-decoration-color: var(--warm); }
+
+  /* Hero */
+  .hero { padding: 56px 0 0; }
+  .hero h1 { font-size: clamp(2.3rem, 6.2vw, 4.6rem); font-weight: 700; max-width: 17ch; }
+  .hero-lede { max-width: 58ch; margin-top: 28px; font-size: 1.25rem; color: var(--ink-soft); }
+  .hero-lede strong { color: var(--ink); font-weight: 600; }
+  .wave { display: block; width: 100%; height: auto; margin-top: 40px; }
+  .wave-note { font-family: var(--display); font-size: 0.85rem; color: var(--ink-soft); margin: 6px 0 0; display: flex; gap: 20px; flex-wrap: wrap; }
+  .key { display: inline-flex; align-items: center; gap: 7px; }
+  .key i { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+  .facts { background: var(--deep); color: #e8f0f3; margin-top: 28px; }
+  .facts dl { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin: 0; padding: 28px 0; }
+  .facts dt { font-family: var(--display); font-size: 0.88rem; color: #9fb9c4; }
+  .facts dd { margin: 4px 0 0; font-family: var(--display); font-weight: 600; font-size: 1.12rem; line-height: 1.3; }
+
+  /* Sections */
+  section { padding: 88px 0 0; }
+  .sec-title { font-size: clamp(1.7rem, 3.4vw, 2.4rem); font-weight: 700; }
+  .sec-intro { max-width: 60ch; color: var(--ink-soft); margin-top: 14px; }
+
+  /* About */
+  .about { display: grid; grid-template-columns: 1.5fr 1fr; gap: 56px; margin-top: 30px; align-items: start; }
+  .about p { max-width: 62ch; }
+  .traits { background: var(--sheet); border-left: 5px solid var(--warm); padding: 24px 26px; }
+  .traits h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 12px; }
+  .traits ul { margin: 0; padding-left: 1.1em; }
+  .traits li { margin-bottom: 10px; font-size: 1.02rem; line-height: 1.5; }
+  .traits li:last-child { margin-bottom: 0; }
+
+  /* Story timeline */
+  .timeline { list-style: none; margin: 40px 0 0; padding: 0; }
+  .timeline li { display: grid; grid-template-columns: 150px 1fr; gap: 32px; padding: 30px 0; border-top: 1px solid var(--line); }
+  .when { font-family: var(--display); font-weight: 700; font-size: 1.5rem; color: var(--cool); line-height: 1.1; }
+  .when span { display: block; font-weight: 400; font-size: 0.9rem; color: var(--ink-soft); margin-top: 6px; line-height: 1.35; }
+  .timeline h3 { font-size: 1.3rem; font-weight: 600; max-width: 44ch; line-height: 1.2; }
+  .timeline p { max-width: 62ch; margin: 12px 0 0; }
+  .timeline .turn { background: var(--sheet); border-top: 0; border-left: 5px solid var(--warm); padding: 26px 28px; grid-template-columns: 1fr; margin: 6px 0 6px 182px; }
+  .timeline .turn p { margin: 0; font-size: 1.22rem; line-height: 1.5; max-width: 54ch; }
+
+  /* Work */
+  .work { margin-top: 40px; display: grid; gap: 28px; }
+  .project { background: var(--sheet); padding: 34px 36px; display: grid; grid-template-columns: 1fr 1.7fr; gap: 40px; }
+  .project.lead { background: var(--deep); color: #e8f0f3; }
+  .project.lead .role, .project.lead dt { color: #9fb9c4; }
+  .project.lead .tags li { border-color: #3b5b6b; color: #cfe0e6; }
+  .project h3 { font-size: 1.55rem; font-weight: 700; }
+  .role { font-family: var(--display); font-size: 0.95rem; color: var(--ink-soft); margin: 12px 0 0; line-height: 1.45; }
+  .tags { list-style: none; padding: 0; margin: 18px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .tags li { font-family: var(--display); font-size: 0.82rem; border: 1px solid var(--line); border-radius: 999px; padding: 3px 11px; color: var(--ink-soft); }
+  .project dl { margin: 0; }
+  .project dt { font-family: var(--display); font-weight: 600; font-size: 0.95rem; color: var(--cool); margin-top: 16px; }
+  .project dt:first-child { margin-top: 0; }
+  .project dd { margin: 4px 0 0; font-size: 1.05rem; line-height: 1.6; }
+
+  /* Toolkit + education */
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; margin-top: 34px; }
+  .two h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 14px; }
+  .kv { margin: 0; }
+  .kv div { display: grid; grid-template-columns: 130px 1fr; gap: 16px; padding: 12px 0; border-top: 1px solid var(--line); }
+  .kv dt { font-family: var(--display); font-size: 0.95rem; color: var(--ink-soft); }
+  .kv dd { margin: 0; font-size: 1.03rem; line-height: 1.5; }
+  .school { padding: 14px 0; border-top: 1px solid var(--line); }
+  .school strong { font-family: var(--display); font-weight: 600; display: block; }
+  .school span { display: block; font-size: 1.02rem; line-height: 1.5; color: var(--ink-soft); }
+
+  /* Contact */
+  .contact { margin-top: 96px; background: var(--deep); color: #e8f0f3; padding: 80px 0 40px; }
+  .contact h2 { font-size: clamp(1.9rem, 4.4vw, 3.1rem); font-weight: 700; max-width: 20ch; }
+  .contact p { max-width: 56ch; color: #c2d4db; margin-top: 20px; }
+  .links { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
+  .btn { font-family: var(--display); font-weight: 600; font-size: 1rem; text-decoration: none; padding: 13px 22px; border-radius: 4px; background: var(--warm); color: #1a1205; }
+  .btn:hover { background: #f09a34; color: #1a1205; }
+  .btn.ghost { background: transparent; color: #e8f0f3; border: 1.5px solid #5b7b8a; }
+  .btn.ghost:hover { border-color: #e8f0f3; color: #fff; }
+  .foot { font-family: var(--display); font-size: 0.85rem; color: #8ba6b2; margin-top: 64px; }
+
+  /* One load moment: the cycle draws itself */
+  .wave .trace { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 2.4s ease-out 0.2s forwards; }
+  .wave .fill { opacity: 0; animation: show 0.9s ease-out 1.6s forwards; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  @keyframes show { to { opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .wave .trace { animation: none; stroke-dashoffset: 0; }
+    .wave .fill { animation: none; opacity: 1; }
+  }
+
+  @media (max-width: 820px) {
+    body { font-size: 1.06rem; }
+    .hero { padding-top: 32px; }
+    .facts dl { grid-template-columns: 1fr 1fr; }
+    .about, .two, .project { grid-template-columns: 1fr; gap: 28px; }
+    .project { padding: 26px 22px; }
+    .timeline li { grid-template-columns: 1fr; gap: 10px; }
+    .timeline .turn { margin-left: 0; padding: 22px; }
+    section { padding-top: 64px; }
+    .kv div { grid-template-columns: 105px 1fr; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="name" href="#top">Qiushi (Billy) Zhao</a>
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#toolkit">Toolkit</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="hero" id="top">
+    <div class="wrap">
+      <h1>Quantitative modelling for financial risk, built on analytics and mathematics.</h1>
+      <p class="hero-lede">I'm <strong>Qiushi (Billy) Zhao</strong>, a Business Analytics and Information Technology senior at Rutgers Business School with a mathematics minor. Most recently I co-developed a research framework linking El Niño climate shocks to sovereign debt risk across 12 emerging markets.</p>
+
+      <svg class="wave" id="wave" viewBox="0 0 1080 200" role="img" aria-label="A stylised curve of the El Niño and La Niña cycle, rising into warm phases and falling into cool phases."></svg>
+      <p class="wave-note">
+        <span class="key"><i style="background:var(--warm)"></i>El Niño, warm phase</span>
+        <span class="key"><i style="background:var(--cool)"></i>La Niña, cool phase</span>
+        <span>Stylised illustration of the climate cycle studied in my research</span>
+      </p>
+    </div>
+
+    <div class="facts">
+      <div class="wrap">
+        <dl>
+          <div><dt>Studying</dt><dd>Business Analytics and IT, Rutgers Business School</dd></div>
+          <div><dt>Minor</dt><dd>Mathematics</dd></div>
+          <div><dt>GPA</dt><dd>3.91 / 4.00</dd></div>
+          <div><dt>Graduating</dt><dd>May 2027</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="wrap">
+      <h2 class="sec-title">About</h2>
+      <div class="about">
+        <div>
+          <p>My experience spans three sides of finance: financial analysis at an accounting firm, equity research at a brokerage, and quantitative research under the mentorship of a J.P. Morgan risk quant. Together they showed me that sound financial decisions need rigorous data behind the narrative, which is why I added a mathematics minor and moved toward quantitative work.</p>
+          <p>I am now focused on quantitative risk and research, where statistical and machine-learning models are applied to real questions about markets, credit and uncertainty.</p>
+        </div>
+        <aside class="traits" aria-label="Strengths">
+          <h3>Strengths</h3>
+          <ul>
+            <li>Sustained, independent work on technically demanding problems.</li>
+            <li>Clear communication of analysis to senior and non-technical audiences.</li>
+            <li>Fast uptake of new tools and methods as a project requires them.</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <h2 class="sec-title">Experience</h2>
+
+      <ol class="timeline">
+        <li>
+          <div class="when">2026<span>Aug to Oct<br>New York, remote</span></div>
+          <div>
+            <h3>Data Analyst Intern, Lions Financial</h3>
+            <p>Analysed website performance in Google Analytics 4 and presented an insights report to firm leadership. Currently producing an equity research report, dataset and presentation on CLP Group (HKEX: 0002), covering value drivers, competitors and risk.</p>
+          </div>
+        </li>
+        <li>
+          <div class="when">2026<span>Mar to Jul<br>Remote</span></div>
+          <div>
+            <h3>Quantitative Research Project, mentored by a J.P. Morgan risk quant</h3>
+            <p>Co-developed a framework evaluating the impact of El Niño–Southern Oscillation climate shocks on sovereign debt risk across 12 emerging markets, using deep-learning and vector autoregression models built in Python and PyTorch.</p>
+          </div>
+        </li>
+        <li>
+          <div class="when">2025<span>Jun to Aug<br>Chengdu</span></div>
+          <div>
+            <h3>Equity Research Intern, Northeast Securities</h3>
+            <p>Worked in the Telecommunications Industry Research Department. Authored an Edge AI industry report and a 20-page study of the low-altitude drone economy, and independently covered a three-day company product conference, briefing the research team on the findings.</p>
+          </div>
+        </li>
+        <li>
+          <div class="when">2024<span>Hong Kong</span></div>
+          <div>
+            <h3>Project Assistant, The Hong Kong Polytechnic University</h3>
+            <p>Designed the user interface and built front-end components for a school-funded blockchain platform that tracks student capstone performance. Earned the UiPath Business Automation Analyst certification.</p>
+          </div>
+        </li>
+        <li>
+          <div class="when">2023<span>Jun to Sep<br>Chengdu</span></div>
+          <div>
+            <h3>Summer Financial Analyst, Baker Tilly</h3>
+            <p>Supported senior analysts with financial statement analysis and Excel-based valuation models for client engagements, and worked with audit teams on documentation.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <h2 class="sec-title">Selected work</h2>
+      
+
+      <div class="work">
+        <article class="project lead">
+          <div>
+            <h3>Climate shocks and sovereign debt risk</h3>
+            <p class="role">Quantitative research project mentored by a J.P. Morgan risk quant, March to July 2026</p>
+            <ul class="tags"><li>Python</li><li>PyTorch</li><li>pandas</li><li>CNN, LSTM, attention</li><li>Vector autoregression</li></ul>
+          </div>
+          <dl>
+            <dt>The question</dt>
+            <dd>El Niño and La Niña bring droughts and floods to both sides of the Pacific. Do those shocks show up in a country's ability to service its debt?</dd>
+            <dt>What I built</dt>
+            <dd>A statistical model of how the cycle affects local climate, using ERA5-Land data and the Oceanic Niño Index. A multi-branch CNN, LSTM and attention network that reads spatial climate grids plus 24 months of history to estimate the chance of crop-yield decline. Vector autoregression models that trace climate shocks through to inflation and GDP across 12 emerging markets.</dd>
+            <dt>Key lesson</dt>
+            <dd>Strong in-sample results do not guarantee reliable forecasts. The project sharpened my approach to overfitting, data preparation and model validation.</dd>
+          </dl>
+        </article>
+
+        <article class="project">
+          <div>
+            <h3>Edge AI industry report</h3>
+            <p class="role">Equity research intern, Northeast Securities, summer 2025</p>
+            <ul class="tags"><li>Industry research</li><li>Value-chain analysis</li><li>Company assessment</li></ul>
+          </div>
+          <dl>
+            <dt>The question</dt>
+            <dd>Small AI models are moving off the cloud and into phones, toys and devices. Which companies in that chain are worth an investor's attention?</dd>
+            <dt>What I did</dt>
+            <dd>Led the report from outline to final draft: how the technology works, where the bottlenecks sit along the supply chain, and how four candidate companies are positioned. That summer I also wrote a 20-page study of China's low-altitude drone economy.</dd>
+            <dt>Result</dt>
+            <dd>The team later validated three of the four companies I assessed as viable investment opportunities.</dd>
+          </dl>
+        </article>
+
+        <article class="project">
+          <div>
+            <h3>Equity research on CLP Group</h3>
+            <p class="role">Data analyst intern, Lions Financial, fall 2026</p>
+            <ul class="tags"><li>Financial statements</li><li>Risk assessment</li><li>Google Sheets</li></ul>
+          </div>
+          <dl>
+            <dt>The question</dt>
+            <dd>What actually drives the value of a Hong Kong-listed power utility, and where is the risk?</dd>
+            <dt>What I'm building</dt>
+            <dd>A research report, a supporting dataset and a slide deck, built from primary filings and market data. The brief asks for driving factors, competitors and risk, not a buy or sell call.</dd>
+            <dt>Focus</dt>
+            <dd>Analysis grounded in reported financials and market data over company messaging.</dd>
+          </dl>
+        </article>
+
+        <article class="project">
+          <div>
+            <h3>Website analytics report</h3>
+            <p class="role">Data analyst intern, Lions Financial, fall 2026</p>
+            <ul class="tags"><li>Google Analytics 4</li><li>Excel</li><li>Presentation</li></ul>
+          </div>
+          <dl>
+            <dt>The question</dt>
+            <dd>What is a month of traffic telling a financial services firm about its own website?</dd>
+            <dt>What I did</dt>
+            <dd>Pulled page, acquisition and behaviour data, and turned it into a written insights report and a deck for a non-technical audience.</dd>
+            <dt>Outcome</dt>
+            <dd>Presented the findings to firm leadership, with the emphasis on insight over description.</dd>
+          </dl>
+        </article>
+
+        <article class="project">
+          <div>
+            <h3>Blockchain platform for capstone projects</h3>
+            <p class="role">Project assistant, Hong Kong Polytechnic University, 2024</p>
+            <ul class="tags"><li>UI and UX design</li><li>Front end</li><li>Python</li></ul>
+          </div>
+          <dl>
+            <dt>The question</dt>
+            <dd>How can a school track each student's contribution to a team capstone in a way nobody can quietly edit afterwards?</dd>
+            <dt>What I did</dt>
+            <dd>Designed the platform's interface and built front-end components alongside the team's developers. We presented a working system at a July 2024 demo.</dd>
+            <dt>Outcome</dt>
+            <dd>A functional system delivered for academic use, and hands-on experience in UI design and front-end development.</dd>
+          </dl>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="toolkit">
+    <div class="wrap">
+      <h2 class="sec-title">Toolkit and education</h2>
+      <div class="two">
+        <div>
+          <h3>What I work with</h3>
+          <dl class="kv">
+            <div><dt>Programming</dt><dd>Python (pandas, PyTorch), MATLAB, R, SQL, JavaScript</dd></div>
+            <div><dt>Modelling</dt><dd>Deep learning for sequence and spatial data, vector autoregression, linear optimisation, probability and Markov chains</dd></div>
+            <div><dt>Finance</dt><dd>Financial statement analysis, valuation, industry and equity research</dd></div>
+            <div><dt>Tools</dt><dd>Excel, Google Analytics 4, Google Colab, UiPath (certified)</dd></div>
+            <div><dt>Languages</dt><dd>English, Mandarin Chinese</dd></div>
+          </dl>
+        </div>
+        <div>
+          <h3>Where I've studied</h3>
+          <div class="school">
+            <strong>Rutgers University, New Brunswick</strong>
+            <span>BS in Business Analytics and Information Technology, minor in Mathematics. GPA 3.91. Expected May 2027.</span>
+            <span>Calculus I to III, linear algebra, linear optimisation, probability theory. Supply chain analytics research with Professor Yao Zhao.</span>
+          </div>
+          <div class="school">
+            <strong>UC San Diego Extension</strong>
+            <span>Ordinary differential equations; stochastic processes and Markov chains. GPA 4.0. 2026.</span>
+          </div>
+          <div class="school">
+            <strong>The Hong Kong Polytechnic University</strong>
+            <span>First year of a BSc in Accounting and Finance, 2023 to 2024, before transferring to Rutgers.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="contact" id="contact">
+  <div class="wrap">
+    <h2>Get in touch</h2>
+    <p>I'm applying to master's programs in financial engineering for fall 2027 and looking for roles in quantitative risk and research. I welcome conversations with people working in the field.</p>
+    <div class="links">
+      <a class="btn" href="mailto:qz239@scarletmail.rutgers.edu">Email me</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/qiushi-zhao-881368289" target="_blank" rel="noopener">Connect on LinkedIn</a>
+    </div>
+    <p class="foot">Qiushi (Billy) Zhao, Piscataway, New Jersey</p>
+  </div>
+</footer>
+
+<script>
+  // Draws a stylised El Niño / La Niña cycle: warm above the baseline, cool below.
+  (function () {
+    var svg = document.getElementById('wave');
+    if (!svg) return;
+    var W = 1080, H = 200, mid = 100, ns = 'http://www.w3.org/2000/svg';
+    var pts = [];
+    for (var x = 0; x <= W; x += 6) {
+      var t = x / W;
+      var y = Math.sin(t * 17.5 + 0.6) * 46 + Math.sin(t * 41 + 1.9) * 20 + Math.sin(t * 7.3) * 16;
+      pts.push([x, mid - y]);
+    }
+    var line = pts.map(function (p, i) { return (i ? 'L' : 'M') + p[0] + ' ' + p[1].toFixed(1); }).join(' ');
+    var area = line + ' L' + W + ' ' + mid + ' L0 ' + mid + ' Z';
+    function el(name, attrs) {
+      var n = document.createElementNS(ns, name);
+      for (var k in attrs) n.setAttribute(k, attrs[k]);
+      return n;
+    }
+    var defs = el('defs', {});
+    var up = el('clipPath', { id: 'up' }); up.appendChild(el('rect', { x: 0, y: 0, width: W, height: mid }));
+    var down = el('clipPath', { id: 'down' }); down.appendChild(el('rect', { x: 0, y: mid, width: W, height: mid }));
+    defs.appendChild(up); defs.appendChild(down); svg.appendChild(defs);
+    svg.appendChild(el('path', { d: area, fill: '#d9801a', 'fill-opacity': 0.85, 'clip-path': 'url(#up)', 'class': 'fill' }));
+    svg.appendChild(el('path', { d: area, fill: '#1f7a8c', 'fill-opacity': 0.85, 'clip-path': 'url(#down)', 'class': 'fill' }));
+    svg.appendChild(el('line', { x1: 0, y1: mid, x2: W, y2: mid, stroke: '#10222e', 'stroke-width': 1, 'stroke-opacity': 0.35 }));
+    svg.appendChild(el('path', { d: line, fill: 'none', stroke: '#10222e', 'stroke-width': 2, pathLength: 1, 'class': 'trace' }));
+  })();
+</script>
+</body>
+</html>
